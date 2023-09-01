@@ -6,16 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-course';
+  nameInputField = "";
+  names : string[] = [];
+  errorMessage = ""
 
+ addMember() {
+  // console.log("click event");
 
-  public names! : any [];
-
-  addNamesOnClick(){
-
-    this.names.push("test");
-
+  if(!this.nameInputField) {
+    this.errorMessage = ("Can't display")
+    return
   }
 
-
+  if(this.nameInputField.trim() !=""){
+    this.names.push(this.nameInputField);
+    this.nameInputField = "";
+  }
+  
+ }
 }
