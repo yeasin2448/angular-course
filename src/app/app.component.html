@@ -1,19 +1,22 @@
 <div class="temp_container">
-    <h2>Team Generator</h2>
-    <ul class="member_list"> 
-      <li *ngFor="let name of names">{{name}}</li>
-      <!-- <li>Nusrat Mitu</li>
-      <li>Monir</li>
-      <li>Monir</li>
-      <li>Monir</li> -->
-    </ul>
-    <div class="user_input">
-      <input type="text" name="user_input" placeholder="Name"  [(ngModel)]="nameInputField"/>
-      <button type="button" (click)="addMember()">Add</button>
-    </div>
-    <div class="temp_select">
-      <input type="text" name="" placeholder="# of teams" />
-      <button type="button">Generate</button>
-    </div>
-    <p>{{ errorMessage }}</p>
+  <h2>Team Generator</h2>
+  <ul class="member_list">
+    <li *ngFor="let name of names">{{ name }}</li>
+  </ul>
+  <div class="user_input">
+    <input
+      type="text"
+      name="user_input"
+      placeholder="Name"
+      [(ngModel)]="nameInputField"
+      [value]="nameInputField"
+      [class]="nameInputField"
+    />
+    <button type="button" (click)="addMember()">Add</button>
+  </div>
+  <div class="temp_select">
+    <input type="text" name="" placeholder="# of teams" />
+    <button type="button">Generate</button>
+  </div>
+  <p>{{ errorMessage }}</p>
 </div>
