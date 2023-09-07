@@ -19,7 +19,11 @@ ul.member_list {
   margin: 0;
   padding: 12px;
   list-style: none;
+  max-height: 100px;
+  min-height: 100px;
+  overflow-y: auto;
   margin-bottom: 16px;
+  border-radius: 6px;
   border: 0.5px solid #838383;
 }
 

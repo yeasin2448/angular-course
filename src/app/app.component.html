@@ -1,22 +1,28 @@
 <div class="temp_container">
   <h2>Team Generator</h2>
   <ul class="member_list">
-    <li *ngFor="let name of names">{{ name }}</li>
+    <li *ngFor="let member of members">{{ member }}</li>
   </ul>
   <div class="user_input">
     <input
+      #addMemberInput
       type="text"
-      name="user_input"
       placeholder="Name"
-      [(ngModel)]="nameInputField"
-      [value]="nameInputField"
-      [class]="nameInputField"
+      (input)="onInput(addMemberInput.value)"
+      [value]="newMemberName"
+      [class]="newMemberName"
     />
     <button type="button" (click)="addMember()">Add</button>
   </div>
   <div class="temp_select">
-    <input type="text" name="" placeholder="# of teams" />
-    <button type="button">Generate</button>
+    <input
+      #numberOfTeamsInput
+      type="text"
+      placeholder="# of teams"
+      (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)"
+      [value]="numberOfTeams"
+    />
+    <button type="button" (click)="generateTeams()">Generate</button>
   </div>
-  <p>{{ errorMessage }}</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
 </div>
