@@ -77,3 +77,7 @@ ul.member_list li {
   border-radius: 6px;
   background: #0a61c5;
 }
+
+.teams_contaienr {
+  margin: 1rem 0;
+}

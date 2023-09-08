@@ -1,28 +1,27 @@
 <div class="temp_container">
-  <h2>Team Generator</h2>
-  <ul class="member_list">
-    <li *ngFor="let member of members">{{ member }}</li>
-  </ul>
-  <div class="user_input">
-    <input
-      #addMemberInput
-      type="text"
-      placeholder="Name"
-      (input)="onInput(addMemberInput.value)"
-      [value]="newMemberName"
-      [class]="newMemberName"
-    />
-    <button type="button" (click)="addMember()">Add</button>
+  <div>
+    <h2>Team Generator</h2>
+    <ul class="member_list">
+      <li *ngFor="let member of members">{{ member }}</li>
+    </ul>
+    <div class="user_input">
+      <input #addMemberInput type="text" placeholder="Name" (input)="onInput(addMemberInput.value)"
+        [value]="newMemberName" [class]="newMemberName" />
+      <button type="button" (click)="addMember()">Add</button>
+    </div>
+    <div class="temp_select">
+      <input #numberOfTeamsInput type="text" placeholder="# of teams"
+        (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)" [value]="numberOfTeams" />
+      <button type="button" (click)="generateTeams()">Generate</button>
+    </div>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
   </div>
-  <div class="temp_select">
-    <input
-      #numberOfTeamsInput
-      type="text"
-      placeholder="# of teams"
-      (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)"
-      [value]="numberOfTeams"
-    />
-    <button type="button" (click)="generateTeams()">Generate</button>
+  <div *ngIf="teams.length" class="teams_contaienr">
+    <team 
+    *ngFor="let team of teams; let i = index"
+    [team] = "team"
+    [index] = "i"
+    >
+    </team>
   </div>
-  <p *ngIf="errorMessage">{{ errorMessage }}</p>
 </div>

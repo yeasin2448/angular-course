@@ -1,0 +1,7 @@
+.team_container ul {
+    margin: 0;
+    padding: 1rem;
+    list-style: none;
+    border-radius: 6px;
+    border: 0.1rem solid rgba(56, 54, 54, 0.128);
+}
